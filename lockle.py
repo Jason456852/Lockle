@@ -27,9 +27,10 @@ f = None
 '''database setup'''
 db = None
 while True:
+    """CREATE A DATABASE WITH init.py BEFORE RUNNING THE FILE"""
     passwd = simpledialog.askstring(" ", "Input database password:")
     try:
-        db = sql.connect(host='localhost', user='root', passwd=passwd, database='accounts')
+        db = sql.connect(host="""SQL HOST""", user="""SQL USER""", passwd=passwd, database='accounts')
     except:
         pass
     else:
@@ -42,7 +43,7 @@ while True:
         pd = simpledialog.askstring(" ", "Input password:").encode('utf-8')
         salt = simpledialog.askstring(" ", "Input salt:").encode('utf-8')
         key = base64.urlsafe_b64encode(argon2.hash_password(password=pd, salt=salt)[:32])
-        encrypted = b'gAAAAABinzPDAMKEMlBET2i_LEAsH_RTHOJ_iGwG4_1GlU0T6UAWVmG6i1xyeLQMY7VDXWIn6FuH89DO-6T75CUOooRcfdKui60UHOYsZn5-6kAxeQmERj8='
+        encrypted = """CREATE A ENCRYPTED BTYES WITH pd AND salt IN init.py FILE"""
         f = Fernet(key)
         decrypted = f.decrypt(encrypted)
         break
